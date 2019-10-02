@@ -3,6 +3,7 @@
 @section('content')
 
 <body> 
+<a href="{!! route('pengumuman.create') !!}" class="btn btn-primary">Tambah Data</a>
         <table border= "1">
         <tr> 
         <td>judul</td>
