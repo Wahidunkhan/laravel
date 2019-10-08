@@ -10,7 +10,7 @@
         <td>nama</td>
         <td>keterangan</td>
         <td>path</td>
-
+        <td>view</td>
         </tr>
 
         @foreach($galeri as $item)
@@ -21,6 +21,9 @@
         <td> {!! $item ->nama !!}</td>
         <td> {!! $item ->keterangan !!}</td>
         <td> {!! $item ->path !!}</td>
+        <td>
+        <a href="{!! route('galeri.show', [$item->id]) !!}" class="btn btn-sm btn-success">Lihat Data</a>
+        
 
         </tr>
         @endforeach

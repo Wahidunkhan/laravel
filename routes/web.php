@@ -73,7 +73,7 @@ Route::post('/galeri/{id}','galeri_controller@show')->name('galeri.show');
 Route::get('/pengumuman','pengumuman_controller@index')->name('pengumuman.index');
 Route::get('/pengumuman/create','pengumuman_controller@create')->name('pengumuman.create');
 Route::post('/pengumuman','pengumuman_controller@store')->name('pengumuman.store');
-Route::post('/pengumuman/{id}','pengumuman_controller@show')->name('pengumuman.show');
+Route::get('/pengumuman/{id}','pengumuman_controller@show')->name('pengumuman.show');
 
 
 

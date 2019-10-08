@@ -9,6 +9,7 @@
         <td>id </td>
         <td>nama</td>
         <td>users</td>
+        <td>view</td>
         </tr>
 
         @foreach($kategori_pengumuman as $item)
@@ -18,11 +19,13 @@
         <td> {!! $item ->id !!}</td>
         <td> {!! $item ->nama !!}</td>
         <td> {!! $item ->users_id !!}</td>
+        <td>
+        <a href="{!! route('kategori_pengumuman.show', [$item->id]) !!}" class="btn btn-sm btn-success">Lihat Data</a>
 
         </tr>
         @endforeach
         </table>
-        </bo
-        dy>
+        </body>
+       
         @endsection
 

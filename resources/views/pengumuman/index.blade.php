@@ -9,6 +9,8 @@
         <td>judul</td>
         <td>isi</td>
         <td>users_id</td>
+        <td>view</td>
+        </tr>
 
         </tr>
 
@@ -18,6 +20,10 @@
         <td> {!! $item ->judul !!}</td>
         <td> {!! $item ->isi !!}</td>
         <td> {!! $item ->users_id !!}</td>
+        <td>
+
+        <a href="{!! route('pengumuman.show', [$item->id]) !!}" class="btn btn-sm btn-success">Lihat Data</a>
+        </td>
 
         </tr>
         @endforeach
