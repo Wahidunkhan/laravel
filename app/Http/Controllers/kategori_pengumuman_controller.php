@@ -32,4 +32,23 @@ class kategori_pengumuman_controller extends Controller
         kategori_pengumuman::create($input);
         return redirect(route ('kategori_pengumuman.index'));
     }
+    public function edit($id){
+        $kategori_pengumuman=kategori_pengumuman::find($id);
+
+        if(empty($kategori_pengumuman)){
+            return redirect (route('kategori_pengumuman.index'));
+        }
+        return view('kategori_pengumuman.edit', compact('kategori_pengumuman'));
+    }
+    public function update($id, Request $request){
+        $kategori_pengumuman=kategori_pengumuman::find($id);
+        $input=$request->all();
+
+        if(empty($kategori_pengumuman)){
+            return redirect (route('kategori_pengumuman.index'));
+        }
+        $kategori_pengumuman->update($input);
+
+        return redirect(route('kategori_pengumuman.index'));
+    }
 }

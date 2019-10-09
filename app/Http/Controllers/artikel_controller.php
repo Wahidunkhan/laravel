@@ -24,14 +24,47 @@ class artikel_controller extends Controller
 
     public function create(){
         $kategori_artikel=kategori_artikel::pluck('nama','id');
+        $laravel=null;
 
-        return view('artikel.create', compact('kategori_artikel'));
+        
+
+        return view('artikel.create', compact('kategori_artikel', 'laravel'));
     }
 
     public function store(Request $request){
         $input=$request->all();
         artikel::create($input);
         return redirect(route ('artikel.index'));
+    }
+    public function edit($id){
+        $artikel=artikel::find($id);
+        $kategori_artikel=kategori_artikel::pluck('nama','id');
+
+        $laravel=kategori_artikel::pluck('nama','id');
+
+        if(empty($artikel)){
+            return redirect (route('artikel.index'));
+        }
+        return view('artikel.edit', compact('artikel','kategori_artikel', 'laravel'));
+    }
+    public function update($id, Request $request){
+        $input=$request->all();
+
+        $artikel=artikel::find($id)->update($input);
+
+        if(empty($artikel)){
+            return redirect (route('artikel.index'));
+        }
+        return redirect(route('artikel.index'));
+    }
+    public function destroy($id){
+        $artikel=artikel::find($id);
+
+        if(empty($artikel)){
+            return redirect (route('artikel.index'));
+        }  
+        $artikel->delete(); 
+        return redirect (route('artikel.index'));
     }
 }
 

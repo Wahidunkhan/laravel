@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
 
 <div class="container">
         <div class="row justify-content-center">
@@ -32,7 +35,15 @@
 
         <td>
 
-        <a href="{!! route('artikel.show', [$item->id]) !!}" class="btn btn-sm btn-success">Lihat Data</a>
+        <a href="{!! route('artikel.show', [$item->id]) !!}" 
+        class="btn btn-sm btn-success">
+        Lihat Data</a>
+        <a href="{!! route('artikel.edit', [$item->id]) !!}"
+        class="btn btn-sm btn-warning">
+        Ubah</a>
+        {!! Form::open(['route'=>['artikel.destroy', $item->id], 'method'=>'delete']) !!}
+        {!! Form::submit('hapus', ['class'=>'btn btn-sm btn-danger','on-click'=>"return confirm('yakin?');"]) !!}
+        {!! Form::close() !!}
         </td>
 
         </tr>

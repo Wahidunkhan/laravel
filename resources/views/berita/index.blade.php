@@ -30,7 +30,15 @@
         <td> {!! $item ->users_id !!}</td>
 
         <td>
-        <a href="{!! route('berita.show', [$item->id]) !!}" class="btn btn-sm btn-success">Lihat Data</a>
+        <a href="{!! route('berita.show', [$item->id]) !!}" 
+        class="btn btn-sm btn-success">
+        Lihat Data</a>
+        <a href="{!! route('berita.edit', [$item->id]) !!}"
+        class="btn btn-sm btn-warning">
+        Ubah</a>
+        {!! Form::open(['route'=>['berita.destroy', $item->id], 'method'=>'delete']) !!}
+        {!! Form::submit('hapus', ['class'=>'btn btn-sm btn-danger','on-click'=>"return confirm('yakin?');"]) !!}
+        {!! Form::close() !!}
         
         </td>
         </tr>
