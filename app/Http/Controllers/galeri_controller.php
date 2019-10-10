@@ -23,13 +23,44 @@ class galeri_controller extends Controller
 
     public function create(){
         $kategori_galeri=kategori_galeri::pluck('nama','id');
+        $laravel2=null;
 
-        return view('galeri.create', compact('kategori_galeri'));
+        return view('galeri.create', compact('kategori_galeri','laravel2'));
     }
 
     public function store(Request $request){
         $input=$request->all();
         galeri::create($input);
         return redirect(route ('galeri.index'));
+    }
+    public function edit($id){
+        $galeri=galeri::find($id);
+        $kategori_galeri=kategori_galeri::pluck('nama','id');
+
+        $laravel2=kategori_galeri::pluck('nama','id');
+
+        if(empty($galeri)){
+            return redirect (route('galeri.index'));
+        }
+        return view('galeri.edit', compact('galeri','kategori_galeri', 'laravel2'));
+    }
+    public function update($id, Request $request){
+        $input=$request->all();
+
+        $galeri=galeri::find($id)->update($input);
+
+        if(empty($galeri)){
+            return redirect (route('galeri.index'));
+        }
+        return redirect(route('galeri.index'));
+    }
+    public function destroy($id){
+        $galeri=galeri::find($id);
+
+        if(empty($galeri)){
+            return redirect (route('galeri.index'));
+        }  
+        $galeri->delete(); 
+        return redirect (route('galeri.index'));
     }
 }

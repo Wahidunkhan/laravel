@@ -10,7 +10,7 @@
                     <div class="card-body">
                     {!! Form::open (['route'=> 'kategori_pengumuman.store', 'method'=>'post']) !!}
                             @include('kategori_pengumuman.form')
-                            {!! Form:close() !!}
+                            {!! Form::close() !!}
                          </form>
                     </div>        
                 </div>

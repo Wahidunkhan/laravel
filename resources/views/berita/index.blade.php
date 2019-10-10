@@ -39,7 +39,7 @@
         {!! Form::open(['route'=>['berita.destroy', $item->id], 'method'=>'delete']) !!}
         {!! Form::submit('hapus', ['class'=>'btn btn-sm btn-danger','on-click'=>"return confirm('yakin?');"]) !!}
         {!! Form::close() !!}
-        
+                
         </td>
         </tr>
         @endforeach

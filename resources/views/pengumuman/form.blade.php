@@ -48,7 +48,7 @@
         <button type="submit" class="btn btn-primary">
             {{ __('Simpan') }}
         </button>
-        <a herf="{!! route('pengumuman.index') !!}" class="btn btn-danger">
+        <a href="{!! route('pengumuman.index') !!}" class="btn btn-danger">
             {{ __('Batal') }}
         </a>
     </div>
